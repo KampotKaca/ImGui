@@ -10,11 +10,13 @@ set(IMGUI_SRC
 )
 
 set(IMGUI_BACKENDS
-    external/imgui/backends/imgui_impl_vulkan.cpp
-    external/imgui/backends/imgui_impl_glfw.cpp
+    backends/imgui_impl_vulkan.cpp
+    backends/imgui_impl_glfw.cpp
 )
 
 add_library(${PROJECT_NAME} ${IMGUI_SRC} ${IMGUI_BACKENDS})
+
+find_package(Vulkan REQUIRED)
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE 
