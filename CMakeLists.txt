@@ -28,10 +28,11 @@ target_sources(${PROJECT_NAME}
         FILES ${IMGUI_H}
 )
 
+find_package(Vulkan REQUIRED)
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
-#        vulkan
-#        glfw
+        Vulkan::Vulkan
+        glfw
 )
 
 target_include_directories(${PROJECT_NAME} 
@@ -39,3 +40,5 @@ target_include_directories(${PROJECT_NAME}
     backends/
     ${Vulkan_INCLUDE_DIRS}
 )
+
+message(STATUS "[Vulkan Path] ${Vulkan_INCLUDE_DIRS}")
